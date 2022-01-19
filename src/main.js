@@ -17,7 +17,7 @@ const iss_url = "https://api.wheretheiss.at/v1/satellites/25544";
 
 map.on("load", async () => {
   // Add an image to use as a custom marker
-  map.loadImage("assets/iss.png", async (error, image) => {
+  map.loadImage("./assets/iss.png", async (error, image) => {
     const geojson = await getLocation();
 
     if (error) throw error;
