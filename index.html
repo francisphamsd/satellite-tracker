@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <title>Satellite-Tracker-V2.0</title>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container px-5">
+        <a class="navbar-brand" href="#">Satellite Tracker</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#satelliteNavBar"
+          aria-controls="satelliteNavBar"
+          aria-expanded="false"
+          aria-label="Toggle satellite navigation bar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="satelliteNavBar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="ISSpage" href="#">ISS</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="otherSatelliteDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Other satellite
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="otherSatelliteDropdown"
+              >
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://hubblesite.org/"
+                    target="_blank"
+                    >Hubber Telescope (coming soon)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://www.jwst.nasa.gov/"
+                    target="_blank"
+                    >James Webb Telescope (coming soon)</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="https://www.nasa.gov/"
+                    >NASA homepage</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://franciswebdev.com/"
+                target="_blank"
+                >About me</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <div class="container px-4 px-lg-5">
+      <!-- Heading row -->
+      <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7">
+          <div id="map"></div>
+          <!-- <img
+            src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg&text=ISS+Map"
+            alt="..."
+            class="img-fluid rounded mb-4 mg-lg0"
+          /> -->
+        </div>
+        <div class="col-lg-5">
+          <h3 class="font-weight-light">The International Space Station</h3>
+          <p>
+            The International Space Station is a modular space station in low
+            Earth orbit. It is a multinational collaborative project involving
+            five participating space agencies: NASA, Roscosmos, JAXA, ESA, and
+            CSA.
+          </p>
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#youtubeLiveView"
+          >
+            Live view
+          </button>
+          <a
+            target="_blank"
+            href="https://en.wikipedia.org/wiki/International_Space_Station"
+            class="btn btn-primary"
+            >Read more!</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- YOUTUBE MODAL -->
+    <div
+      class="offcanvas offcanvas-end"
+      data-bs-scroll="true"
+      data-bs-backdrop="false"
+      tabindex="-1"
+      id="youtubeLiveView"
+      aria-labelledby="youtubeLiveViewLabel"
+    >
+      <div class="offcanvas-header">
+        <h2>Live view from YouTube</h2>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <iframe
+          width="367"
+          height="206"
+          src="https://www.youtube.com/embed/86YLFOog4GM"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          width="367"
+          height="206"
+          src="https://www.youtube.com/embed/DDU-rZs-Ic4"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- SATELLITE STAT -->
+    <div class="container card-group px-4 px-lg-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Position</h5>
+          <p>
+            <span class="fw-bold">Latitude:</span> <span id="lat"></span>&deg;
+            &ThickSpace; <span class="fw-bold">Longitude:</span>
+            <span id="lon"></span>&deg;
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 1 second ago</small>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Velocity</h5>
+          <p class="card-text"><span id="vel"></span> mph</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 1 second ago</small>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Altitude</h5>
+          <p class="card-text"><span id="alt"></span> miles</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 1 second ago</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-white bg-secondary my-5 py-4 text-center">
+      <div class="container px-4 px-lg-5">
+        <span class="align-middle">Copyright &copy; 2022 francisWebDEV</span>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+
+    <script src="src/main.js"></script>
+  </body>
+</html>
