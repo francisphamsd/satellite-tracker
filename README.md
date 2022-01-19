@@ -28,12 +28,12 @@ The Satellite Tracker app track the I.S.S and other satelites by fetching the la
 
 ### Screenshot
 
-[I.S.S Tracker]("./assets/screenshot.png")
+[I.S.S Tracker](assets/screenshot.png)
 
 ### Links
 
-- [github url]: (https://github.com/francisphamsd/satellite-tracker.git)
-- [live site url]: (https://francisphamsd.github.io/satellite-tracker/)
+- [Github source code](https://github.com/francisphamsd/satellite-tracker.git)
+- [Live site](https://francisphamsd.github.io/satellite-tracker/)
 
 ## My process
 
@@ -65,7 +65,7 @@ In the future, I might add more option to the map such as:
 
 - [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/) - This is a doc for Mapbox GL JS. They have reference on how to set the marker and zoom the map
 
-- [Bootstrap doc]() - bootstrap documentation help me with building the component for the webapp
+- [Bootstrap doc](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - bootstrap documentation help me with building the component for the webapp
 
 -[Dummy image api](https://dummyimage.com) - This api allow me to quickly add placeholder image to the component I plan to use later
 
